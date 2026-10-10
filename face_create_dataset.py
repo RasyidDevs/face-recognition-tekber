@@ -11,6 +11,7 @@ if not os.path.exists(dataset_path + person_name):
     os.makedirs(dataset_path + person_name)
 dict_name = {"Rasyid": [(0, 0, 255)], "Faruq": [(0, 255, 0)], "Akbar": [(255,0,0)]}
 count = len(os.listdir(dataset_path + person_name))
+first = count
 while True:
     ret, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -24,7 +25,7 @@ while True:
     cv2.imshow("Camera", frame)
     if cv2.waitKey(1) == ord("q"):
         break
-    elif count == 350:
+    elif count == first + 350:
         break
 cap.release()
 cv2.destroyAllWindows()
