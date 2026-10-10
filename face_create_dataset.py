@@ -10,7 +10,7 @@ if not os.path.exists(dataset_path):
 if not os.path.exists(dataset_path + person_name):
     os.makedirs(dataset_path + person_name)
 dict_name = {"Rasyid": [(0, 0, 255)], "Faruq": [(0, 255, 0)], "Akbar": [(255,0,0)]}
-count = 0
+count = len(os.listdir(dataset_path + person_name))
 while True:
     ret, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
